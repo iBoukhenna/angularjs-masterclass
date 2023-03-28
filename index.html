@@ -4,16 +4,13 @@
     <title></title>
 </head>
 <body ng-app>
+    <div ng-init="users=['Marc', 'Jean', 'Jhon']">
+        {{users}}
+    </div>
 
     <input type="text" ng-model="task" />
 
     {{"Hello " + task}}
-    
-    <input type="text" ng-model="nb1" />
-    <input type="text" ng-model="nb2" />
-    {{"Add : " + (nb1*1 + nb2*1)}}
-    {{"Mult : " + (nb1 * nb2)}}
-
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </body>
