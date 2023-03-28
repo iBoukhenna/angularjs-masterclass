@@ -5,7 +5,7 @@
 </head>
 <body ng-app>
     <div ng-init="users=['Marc', 'Jean', 'Jhon']">
-        {{users}}
+        <li ng-repeat="user in users">{{user}}</li>
     </div>
 
     <input type="text" ng-model="task" />
