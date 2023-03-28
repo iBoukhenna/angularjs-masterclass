@@ -4,17 +4,20 @@
     <title></title>
 </head>
 <body ng-app="myApp">
-    <input type="text" ng-model="query" />
-    <select ng-model="order">
-        <option value="username">order by username</option>
-        <option value="content">order by content</option>
-    </select>
 
-    <div ng-controller="CommentsCtrl">
+    <div ng-controller="CommentsCtrl" ng-init="query='veniam'">
+        <input type="text" ng-model="query" />
+        {{query}}
+        <select ng-model="order">
+            <option value="username">order by username</option>
+            <option value="content">order by content</option>
+        </select>
+
         <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
             <p><strong>{{comment.username}}</strong><br>
                 {{comment.content}}
             </p>
+            <input type="text" ng-model="query" />
         </div>
     </div>
 
