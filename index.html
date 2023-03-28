@@ -22,12 +22,11 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
 
     <script>
-        var app = angular.module('myApp', ['ngAnimate']);
+        var app = angular.module('myApp', []);
 
-        app.controller('CommentsCtrl', function ($scope) {
+        app.controller('CommentsCtrl', ['$scope', function ($scope) {
             $scope.comments = [
                 {
                     "city": "Soham",
@@ -72,7 +71,7 @@
                     "username": "Monroe"
                 }
             ];
-        })
+        }])
     </script>
 </body>
 </html>
