@@ -4,8 +4,10 @@
     <title></title>
 </head>
 <body ng-app>
+    <input type="text" ng-model="query" />
+
     <div ng-init="users=['Marc', 'Jean', 'Jhon']">
-        <li ng-repeat="user in users | filter:'M'">{{user | uppercase}}</li>
+        <li ng-repeat="user in users | filter:query">{{user | uppercase}}</li>
     </div>
 
     {{users | filter:'M'}}
