@@ -11,7 +11,7 @@
     </select>
 
     <div ng-init="users=[{username:'Marc', content:'Hello'}, {username:'Jean', content:'Test'}, {username:'Jhon', content:'First'}]">
-        <li ng-repeat="user in users | filter:query | orderBy:order">{{user | uppercase}}</li>
+        <li ng-repeat="user in users | filter:{content:query} | orderBy:order">{{user | uppercase}}</li>
     </div>
 
     {{users | filter:'M'}}
