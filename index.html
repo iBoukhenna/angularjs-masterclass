@@ -5,9 +5,13 @@
 </head>
 <body ng-app>
     <input type="text" ng-model="query" />
+    <select ng-model="order">
+        <option value="username">order by username</option>
+        <option value="content">order by content</option>
+    </select>
 
-    <div ng-init="users=[{username:'Marc', content:'Hello everyone'}, {username:'Jean', content:'Hello Marc'}, {username:'Jhon', content:'Hello '}]">
-        <li ng-repeat="user in users | filter:query | orderBy:'+username'">{{user | uppercase}}</li>
+    <div ng-init="users=[{username:'Marc', content:'Hello'}, {username:'Jean', content:'Test'}, {username:'Jhon', content:'First'}]">
+        <li ng-repeat="user in users | filter:query | orderBy:order">{{user | uppercase}}</li>
     </div>
 
     {{users | filter:'M'}}
