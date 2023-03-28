@@ -11,15 +11,12 @@
     </select>
 
     <div ng-init="users=[{username:'Marc', content:'Hello'}, {username:'Jean', content:'Test'}, {username:'Jhon', content:'First'}]">
-        <li ng-repeat="user in users | filter:{content:query} | orderBy:order">{{user | uppercase}}</li>
+        <div ng-repeat="user in users | filter:{content:query} | orderBy:order">
+            <p><strong>{{user.username}}</strong><br>
+                {{user.content}}</div>
+            </p>
     </div>
 
-    {{users | filter:'M'}}
-
-    <input type="text" ng-model="task" />
-
-    {{"Hello " + task}}
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </body>
 </html>
