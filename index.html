@@ -5,26 +5,19 @@
 </head>
 <body ng-app="myApp">
 
-    <div ng-controller="CommentsCtrl" ng-init="query='veniam'">
-        <input type="text" ng-model="query" />
-        {{query}}
-        <select ng-model="order">
-            <option value="username">order by username</option>
-            <option value="content">order by content</option>
-        </select>
+    <div ng-view></div>
 
-        <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
-            <p><strong>{{comment.username}}</strong><br>
-                {{comment.content}}
-            </p>
-            <input type="text" ng-model="query" />
-        </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.14/angular-route.min.js"></script>
 
     <script>
-        var app = angular.module('myApp', []);
+        var app = angular.module('myApp', ['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+            .when('/', {templateUrl: 'partials/home.html'})
+            .when('/comments', {templateUrl: 'partials/comments.html'})
+            .otherwise({redirectTo: '/'})
+        });
 
         app.controller('CommentsCtrl', function ($scope) {
             $scope.comments = [
