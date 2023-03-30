@@ -23,4 +23,11 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         $scope.newComment = {};
     }
 
+    $scope.searchFunct = function (value, index, array) {
+        if (value.email == "Eliseo@gardner.biz") {
+            return true;
+        }
+        return false;
+    }
+
 });
