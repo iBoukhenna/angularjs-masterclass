@@ -8,6 +8,7 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         $scope.title = post.name;
         $scope.comments = post.comments;
         $scope.date = $filter('date')(1288323623006, 'medium');
+        $scope.number = 2.87466535;
         $scope.search = {}
     }, function(msg) {
         alert(msg);
