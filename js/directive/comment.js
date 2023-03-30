@@ -1,7 +1,7 @@
 app.directive('ngComment', function () {
     return {
         scope : {
-            comment : '=comment3'
+            comment : '='
         },
         restrict: 'E',
         templateUrl: 'partials/_comment.html'
