@@ -13,7 +13,7 @@
 
     <h1>{{title}} {{date | date }}</h1>
 
-    <p>{{number | round:4}}</p>
+    <p>{{number}}</p>
     <div ng-repeat="comment in comments | filter:search | orderBy:order">
         <p><strong>{{comment.username | uppercase}}</strong><br>
             {{comment.content}}
