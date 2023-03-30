@@ -19,7 +19,7 @@
             .otherwise({redirectTo: '/'})
         });
 
-        app.factory('PostFactory', function ($http, $q) {
+        app.factory('PostFactory', function ($http, $q, $timeout) {
             var factory = {
                 posts : false,
                 getPosts : function () {
@@ -27,7 +27,9 @@
                     $http.get('posts.json')
                         .success(function (data, status) {
                             factory.posts = data;
-                            deferred.resolve(factory.posts);
+                            $timeout(function () {
+                                deferred.resolve(factory.posts);
+                            }, 2000)
                         }).error(function (data, status) {
                             deferred.reject("not found")
                         });
