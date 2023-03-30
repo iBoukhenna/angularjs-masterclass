@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>My anugularJS App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body ng-app="myApp">
 
     <div ng-show="loading">Loading ...</div>
 
-    <div ng-view></div>
+    <div class="nevbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">AngularJS</a>
+        </div>
+    </div>
+
+    <div class="container" ng-view></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.2.14/angular-route.min.js"></script>
