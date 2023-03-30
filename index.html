@@ -19,11 +19,11 @@
             .otherwise({redirectTo: '/'})
         });
 
-        app.factory('PostFactory', function () {
+        app.factory('PostFactory', function ($http) {
             var factory = {
                 posts : false,
                 getPosts : function () {
-                    return factory.posts;
+                    return $http.get('posts.json');
                 },
                 getPost : function(id) {
                     var post = {};
