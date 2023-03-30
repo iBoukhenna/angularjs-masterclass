@@ -3,8 +3,9 @@
 </p>
 
 <div ng-hide="loading">
-    <input type="text" ng-model="query" />
-    {{query}}
+    <input type="text" placeholder="find in username" ng-model="search.username" />
+    <input type="text" placeholder="find in content" ng-model="search.content" />
+    {{search}}
     <select ng-model="order">
         <option value="username">order by username</option>
         <option value="content">order by content</option>
@@ -12,7 +13,7 @@
 
     <h1>{{title}} {{date | date }}</h1>
 
-    <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
+    <div ng-repeat="comment in comments | filter:search | orderBy:order">
         <p><strong>{{comment.username | uppercase}}</strong><br>
             {{comment.content}}
         </p>
