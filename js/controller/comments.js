@@ -1,4 +1,4 @@
-app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $routeParams) {
+app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $routeParams, $filter) {
 
     $rootScope.loading = true;
     $scope.newComment = {};
@@ -7,7 +7,7 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         $rootScope.loading = false;
         $scope.title = post.name;
         $scope.comments = post.comments;
-        $scope.date = 1288323623006;
+        $scope.date = $filter('date')(1288323623006, 'medium');
     }, function(msg) {
         alert(msg);
     });
