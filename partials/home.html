@@ -1,7 +1,11 @@
-<h1>Article #1</h1>
+<div ng-repeat="post in posts">
+    <h1>{{post.name}}</h1>
 
-<p>In nisi veniam cillum enim. Reprehenderit eu elit incididunt dolor ipsum dolor cillum culpa enim excepteur minim enim ex exercitation. In nisi veniam cillum enim. Reprehenderit eu elit incididunt dolor ipsum dolor cillum culpa enim excepteur minim enim ex exercitation. In nisi veniam cillum enim. Reprehenderit eu elit incididunt dolor ipsum dolor cillum culpa enim excepteur minim enim ex exercitation.</p>
+    <p>{{post.content}}</p>
+    
+    <p>
+        <a href="#/comments/{{post.id}}">{{post.comments.length}} Commentaires</a>
+    </p>
 
-<h2>3 Commentaires</h2>
-
-<a href="#/comments">Voir les commentaires</a>
+    <hr>
+</div>
