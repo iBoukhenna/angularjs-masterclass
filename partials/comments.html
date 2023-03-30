@@ -10,10 +10,10 @@
         <option value="content">order by content</option>
     </select>
 
-    <h1>{{title}}</h1>
+    <h1>{{title}} {{date | date:'medium'}}</h1>
 
     <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
-        <p><strong>{{comment.username}}</strong><br>
+        <p><strong>{{comment.username | uppercase}}</strong><br>
             {{comment.content}}
         </p>
     </div>

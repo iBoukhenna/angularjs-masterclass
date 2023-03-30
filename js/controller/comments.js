@@ -7,6 +7,7 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         $rootScope.loading = false;
         $scope.title = post.name;
         $scope.comments = post.comments;
+        $scope.date = 1288323623006;
     }, function(msg) {
         alert(msg);
     });
