@@ -1,7 +1,7 @@
 app.factory('PostFactory', function ($http, $q, $timeout) {
     var factory = {
         posts : false,
-        getPosts : function () {
+        find : function () {
             var deferred = $q.defer();
             if(factory.posts !== false) {
                 deferred.resolve(factory.posts);
@@ -18,10 +18,10 @@ app.factory('PostFactory', function ($http, $q, $timeout) {
             }
             return deferred.promise;
         },
-        getPost : function(id) {
+        get : function(id) {
             var deferred = $q.defer();
             var post = {};
-            var posts = factory.getPosts().then(function(posts) {
+            var posts = factory.find().then(function(posts) {
                 angular.forEach(posts , function (value, key) {
                     if (value.id == id) {
                         post = value;
@@ -33,6 +33,12 @@ app.factory('PostFactory', function ($http, $q, $timeout) {
             });
             return deferred.promise;
         },
+        add : function () {
+            var deferred = $q.defer();
+            // ...
+            deferred.resolve();
+            return deferred.promise;
+        }
     };
 
     return factory;
