@@ -16,9 +16,6 @@
     <p>{{number}}</p>
     <div ng-repeat="comment in comments | filter:search | orderBy:order">
         <div ng-comment></div>
-        <p><strong>{{comment.username | uppercase}}</strong><br>
-            {{comment.content}}
-        </p>
     </div>
 
     <form ng-submit="addComment()">
