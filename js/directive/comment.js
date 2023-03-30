@@ -1,6 +1,6 @@
 app.directive('ngComment', function () {
     return {
-        restrict: 'C',
+        restrict: 'E',
         templateUrl: 'partials/_comment.html'
     }
 })
