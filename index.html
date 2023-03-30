@@ -129,7 +129,13 @@
                     return factory.posts;
                 },
                 getPost: function(id) {
-                    return factory.posts[0];
+                    var post = {};
+                    angular.forEach(factory.posts , function (value, key) {
+                        if (value.id == id) {
+                            post = value;
+                        }
+                    });
+                    return post;
                 }
             }
             return factory;
@@ -139,51 +145,10 @@
             $scope.posts = PostFactory.getPosts();
         })
 
-        app.controller('CommentsCtrl', function ($scope) {
-            $scope.comments = [
-                {
-                    "city": "Soham",
-                    "email": "judy@soham.day",
-                    "content": "Sint voluptate laboris nostrud cillum aute nulla incididunt eu eiusmod culpa. Fugiat labore cupidatat cupidatat culpa sint non est.",
-                    "username": "Judy"
-                },
-                {
-                    "city": "Kerby",
-                    "email": "jo@kerby.ps",
-                    "content": "In nisi veniam cillum enim. Reprehenderit eu elit incididunt dolor ipsum dolor cillum culpa enim excepteur minim enim ex exercitation.",
-                    "username": "Jo"
-                },
-                {
-                    "city": "Movico",
-                    "email": "harris@movico.philips",
-                    "content": "Non duis excepteur eiusmod veniam mollit. Sit consequat cupidatat veniam excepteur commodo laborum consequat elit commodo cillum officia ut eu.",
-                    "username": "Harris"
-                },
-                {
-                    "city": "Moquino",
-                    "email": "earline@moquino.sa",
-                    "content": "Laborum ad pariatur pariatur laborum sit magna cillum tempor qui non commodo qui irure in. Tempor commodo laborum velit mollit labore Lorem.",
-                    "username": "Earline"
-                },
-                {
-                    "city": "Twilight",
-                    "email": "mara@twilight.maison",
-                    "content": "Commodo commodo esse cupidatat tempor. Proident qui minim pariatur eu.",
-                    "username": "Mara"
-                },
-                {
-                    "city": "Zortman",
-                    "email": "cantu@zortman.asia",
-                    "content": "Nostrud do reprehenderit qui labore. Enim Lorem minim dolor consequat veniam consequat tempor incididunt.",
-                    "username": "Cantu"
-                },
-                {
-                    "city": "Taft",
-                    "email": "monroe@taft.exchange",
-                    "content": "Minim est deserunt pariatur tempor et veniam ipsum et tempor laboris irure proident minim labore. Minim ut labore sunt qui et veniam non.",
-                    "username": "Monroe"
-                }
-            ];
+        app.controller('CommentsCtrl', function ($scope, PostFactory, $routeParams) {
+            var post = PostFactory.getPost($routeParams.id);
+            $scope.title = post.name;
+            $scope.comments = post.comments;
         })
     </script>
 </body>
