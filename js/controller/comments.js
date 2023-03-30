@@ -31,4 +31,8 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         return false;
     }
 
+    $scope.selectComment = function() {
+        alert('Hello');
+    }
+
 });
