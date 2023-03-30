@@ -24,7 +24,10 @@
                 posts : false,
                 getPosts : function () {
                     var deferred = $q.defer();
-                    $http.get('posts.json')
+                    if(factory.posts !== false) {
+                        deferred.resolve(factory.posts);
+                    } else {
+                        $http.get('posts.json')
                         .success(function (data, status) {
                             factory.posts = data;
                             $timeout(function () {
@@ -33,16 +36,23 @@
                         }).error(function (data, status) {
                             deferred.reject("not found")
                         });
+                    }
                     return deferred.promise;
                 },
                 getPost : function(id) {
+                    var deferred = $q.defer();
                     var post = {};
-                    angular.forEach(factory.posts , function (value, key) {
-                        if (value.id == id) {
-                            post = value;
-                        }
+                    var posts = factory.getPosts().then(function(posts) {
+                        angular.forEach(posts , function (value, key) {
+                            if (value.id == id) {
+                                post = value;
+                            }
+                        });
+                        deferred.resolve(post);
+                    }, function(msg) {
+                        deferred.reject(msg);
                     });
-                    return post;
+                    return deferred.promise;
                 },
             };
 
@@ -60,9 +70,14 @@
         })
 
         app.controller('CommentsCtrl', function ($scope, PostFactory, $routeParams) {
-            var post = PostFactory.getPost($routeParams.id);
-            $scope.title = post.name;
-            $scope.comments = post.comments;
+            $scope.loading = true;
+            var post = PostFactory.getPost($routeParams.id).then(function(post){
+                $scope.loading = false;
+                $scope.title = post.name;
+                $scope.comments = post.comments;
+            }, function(msg) {
+                alert(msg);
+            });
         })
     </script>
 </body>
