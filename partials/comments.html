@@ -20,6 +20,10 @@
 
     <ng-time></ng-time>
 
+    <div class="form-group">
+        <input class="form-control datepicker" datepicker-options="{today:'This Day'}" type="text" placeholder="date" ng-model="newComment.username" />
+    </div>
+
     <form ng-submit="addComment()">
         <input type="text" placeholder="username" ng-model="newComment.username" />
         <br>
