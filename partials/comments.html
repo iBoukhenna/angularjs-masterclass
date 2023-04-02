@@ -3,39 +3,34 @@
 </p>
 
 <div ng-hide="loading">
-    <input type="text" placeholder="find in username" ng-model="search.username" />
-    <input type="text" placeholder="find in content" ng-model="search.content" />
-    {{search}}
-    <select ng-model="order">
-        <option value="username">order by username</option>
-        <option value="content">order by content</option>
-    </select>
+    <h1>{{post.name}}</h1>
 
-    <h1>{{title}} {{date | date }}</h1>
+    <p>{{post.content}}</p>
 
-    <p>{{number}}</p>
+    <h3>{{comments.length}} Comments</h3>
 
-    <div ng-test username="newComment.username">
-        <div ng-repeat="comment2 in comments | filter:search | orderBy:order">
-            <ng-comment comment="comment2" select="selectComment()"></ng-comment>
-        </div>
+    <div ng-repeat="comment in comments | filter:search | orderBy:order">
+        <ng-comment comment="comment"></ng-comment>
     </div>
 
-    <ng-time></ng-time>
-
-    <div class="form-group">
-        <input class="form-control datepicker" datepicker-options="{today:'This Day'}" type="text" placeholder="date" ng-model="newComment.username" />
-    </div>
+    <hr>
 
     <form ng-submit="addComment()">
-        <input type="text" placeholder="username" ng-model="newComment.username" />
-        <br>
-        <input type="text" placeholder="city" ng-model="newComment.city" />
-        <br>
-        <input type="text" placeholder="email" ng-model="newComment.email" />
-        <br>
-        <textarea ng-model="newComment.content"></textarea>
-        <br>
-        <input type="submit" value="Envoyer" />
+        <h3>Ajouter un commentaire</h3>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="username" ng-model="newComment.username" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="city" ng-model="newComment.city" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="email" ng-model="newComment.email" />
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" ng-model="newComment.content"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Envoyer" />
+        </div>
     </form>
 </div>

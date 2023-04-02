@@ -5,11 +5,8 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
     
     PostFactory.get($routeParams.id).then(function(post){
         $rootScope.loading = false;
-        $scope.title = post.name;
+        $scope.post = post;
         $scope.comments = post.comments;
-        $scope.date = $filter('date')(1288323623006, 'medium');
-        $scope.number = $filter('round')(2.87466535, 3);
-        $scope.search = {}
     }, function(msg) {
         alert(msg);
     });
@@ -23,16 +20,4 @@ app.controller('CommentsCtrl', function ($scope, $rootScope, PostFactory, $route
         });
         $scope.newComment = {};
     }
-
-    $scope.searchFunct = function (value, index, array) {
-        if (value.email == "Eliseo@gardner.biz") {
-            return true;
-        }
-        return false;
-    }
-
-    $scope.selectComment = function() {
-        alert('Hello');
-    }
-
 });
