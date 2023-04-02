@@ -21,3 +21,14 @@ app.directive('datepicker', function () {
         }
     }
 })
+
+app.directive('ngTest', function () {
+    return {
+        template : '<div>Hello <strong>{{username}}</strong></div>',
+        restrict : 'A',
+        scope : {
+            username : '='
+        }
+    }
+})
+

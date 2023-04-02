@@ -14,8 +14,11 @@
     <h1>{{title}} {{date | date }}</h1>
 
     <p>{{number}}</p>
-    <div ng-repeat="comment2 in comments | filter:search | orderBy:order">
-        <ng-comment comment="comment2" select="selectComment()"></ng-comment>
+
+    <div ng-test username="newComment.username">
+        <div ng-repeat="comment2 in comments | filter:search | orderBy:order">
+            <ng-comment comment="comment2" select="selectComment()"></ng-comment>
+        </div>
     </div>
 
     <ng-time></ng-time>
