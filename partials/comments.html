@@ -3,15 +3,21 @@
 </p>
 
 <div ng-hide="loading">
-    <h1>{{post.name}}</h1>
+    <ng-tabs>
+        <ng-tab title="Article">
+            <h1>{{post.name}}</h1>
 
-    <p>{{post.content}}</p>
+            <p>{{post.content}}</p>
+        
+        </ng-tab>
+        <ng-tab title="{{comments.length}} Comments">
+            <h3>{{comments.length}} Comments</h3>
 
-    <h3>{{comments.length}} Comments</h3>
-
-    <div ng-repeat="comment in comments | filter:search | orderBy:order">
-        <ng-comment comment="comment"></ng-comment>
-    </div>
+            <div ng-repeat="comment in comments | filter:search | orderBy:order">
+                <ng-comment comment="comment"></ng-comment>
+            </div>
+        </ng-tab>
+</ng-tabs>
 
     <hr>
 
