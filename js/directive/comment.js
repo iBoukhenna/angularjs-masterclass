@@ -24,8 +24,9 @@ app.directive('datepicker', function () {
 
 app.directive('ngTest', function () {
     return {
-        template : '<div>Hello <strong>{{username}}</strong></div>',
+        template : '<div>Hello <strong>{{username}}</strong><div ng-transclude></div></div>',
         restrict : 'A',
+        transclude : true,
         scope : {
             username : '='
         }
