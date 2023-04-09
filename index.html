@@ -17,6 +17,11 @@
             <h2>{{p.name}}</h2>
             <p>{{p.content}}</p>
         </article>
+        <form action="#">
+            <input type="text" ng-model="post.name" /><br>
+            <textarea ng-model="post.content"></textarea><br>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
