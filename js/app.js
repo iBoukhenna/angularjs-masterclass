@@ -3,6 +3,7 @@ var app = angular.module('myApp', []);
 app.controller('demoCtrl', function($scope, $interval) {
 
     $scope.count = 0;
+    $scope.counts = [0, 0, 0];
 
     $interval(function () {
         $scope.count++;
