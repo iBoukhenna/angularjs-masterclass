@@ -5,8 +5,9 @@ app.controller('demoCtrl', function($scope) {
     $scope.count = 0;
 
     window.setInterval(function () {
-        $scope.count++;
-        $scope.$apply();
+        $scope.$apply(function () {
+            $scope.count++;
+        });
     }, 1000)
 
     $scope.increaseCount = function () {
