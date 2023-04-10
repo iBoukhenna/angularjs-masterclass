@@ -19,4 +19,9 @@ app.controller('demoCtrl', function($scope, $interval) {
     $scope.increaseCount = function () {
         $scope.count++;
     }
+
+    $scope.convertMin = function (input) {
+        console.log('Demo');
+        return Math.floor(input / 60) + " minutes";
+    }
 })

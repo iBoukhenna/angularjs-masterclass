@@ -8,6 +8,7 @@
 
     <div class="ui container" ng-controller="demoCtrl">
         <p>{{ count | minutes }}</p>
+        <p>{{ convertMin(count) }}</p>
         <button class="ui button" ng-click="increaseCount()">Increase</button>
         <ul>
             <li ng-repeat="c in counts track by $index">
