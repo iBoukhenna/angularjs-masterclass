@@ -1,8 +1,10 @@
 var app = angular.module('myApp', ['ngResource']);
-app.controller('PostsCtrl', function($scope, $resource) {
-    var Post = $resource('http://localhost/comments/:id', null, {
+app.factory('Post', function ($resource) {
+    return $resource('http://localhost/comments/:id', null, {
         'update': {method:'PUT', params: {id: "@id"}}
     });
+})
+app.controller('PostsCtrl', function($scope, Post) {
     $scope.posts = Post.query();
     $scope.post = false;
     $scope.npost = {};
