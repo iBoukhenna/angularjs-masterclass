@@ -4,14 +4,23 @@ app.controller('PostsCtrl', function($scope, $resource) {
         'update': {method:'PUT', params: {id: "@id"}}
     });
     $scope.posts = Post.query();
-    $scope.post = Post.get({id : 1}, function () {
-        $scope.post.name = "first";
-        $scope.post.content = "My first comment";
-        $scope.post.$update();
-    });
+    $scope.post = false;
+    $scope.npost = {};
 
-    var post = new Post;
-    post.name = "seven";
-    post.content = "My seven comment";
-    post.$save();
+    $scope.editPost = function () {
+        $scope.post.$update(function() {
+            $scope.post = false;
+        });
+    }
+
+    $scope.showEditPost = function (post) {
+        $scope.post = post;
+    }
+
+    $scope.newPost = function () {
+        var post = Post.save(null, $scope.npost, function () {
+            $scope.posts.push(post);
+        })
+    }
+
 })

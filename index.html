@@ -13,13 +13,22 @@
     </div>
 
     <div class="container" ng-controller="PostsCtrl">
+        <h1>List Post</h1>
         <article ng-repeat="p in posts">
             <h2>{{p.name}}</h2>
             <p>{{p.content}}</p>
+            <a href="#" ng-click="showEditPost(p)">Edit</a>
         </article>
-        <form action="#">
+        <form action="#" ng-show="post.id" ng-submit="editPost()">
+            <h1>Edit Post</h1>
             <input type="text" ng-model="post.name" /><br>
             <textarea ng-model="post.content"></textarea><br>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <form action="#" ng-submit="newPost()">
+            <h1>New Post</h1>
+            <input type="text" ng-model="npost.name" /><br>
+            <textarea ng-model="npost.content"></textarea><br>
             <button type="submit" class="btn btn-primary">Send</button>
         </form>
     </div>
