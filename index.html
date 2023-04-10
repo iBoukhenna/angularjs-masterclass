@@ -7,7 +7,7 @@
 <body ng-app="myApp">
 
     <div class="ui container" ng-controller="demoCtrl">
-        <p>{{ count }}</p>
+        <p>{{ count | minutes }}</p>
         <button class="ui button" ng-click="increaseCount()">Increase</button>
         <ul>
             <li ng-repeat="c in counts track by $index">
